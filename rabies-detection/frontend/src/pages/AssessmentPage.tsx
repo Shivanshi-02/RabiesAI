@@ -52,7 +52,7 @@ const Toggle: React.FC<{
   label: string;
   sublabel?: string;
   highRisk?: boolean;
-}> = ({ id, checked, onChange, label, sublabel, highRisk }) => (
+}> = ({  checked, onChange, label, sublabel, highRisk }) => (
   <motion.div
     whileHover={{ scale: 1.01 }}
     whileTap={{ scale: 0.99 }}

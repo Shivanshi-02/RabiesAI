@@ -25,7 +25,7 @@ import {
   Search
 } from 'lucide-react';
 import { getModelInfo, getHistory } from '../api/client';
-import type { ModelInfo, PredictionHistoryItem } from '../types';
+import type { ModelInfo, PredictionHistoryItem, RiskLevel } from '../types';
 
 type DashboardState = {
   info: ModelInfo | null;
@@ -82,7 +82,7 @@ const Dashboard: React.FC = () => {
       const randomName = `${firstNames[Math.floor(Math.random() * firstNames.length)]} ${lastNames[Math.floor(Math.random() * lastNames.length)]}`;
       
       const randomProb = Math.random();
-      let riskLevel = 'Low';
+      let riskLevel:RiskLevel = 'Low';
       if (randomProb >= 0.70) riskLevel = 'High';
       else if (randomProb >= 0.35) riskLevel = 'Medium';
 
@@ -340,7 +340,7 @@ const Dashboard: React.FC = () => {
 
             <div className="space-y-3 flex-1 overflow-hidden">
               <AnimatePresence initial={false}>
-                {history.slice(0, 5).map((item, i) => (
+                {history.slice(0, 5).map((item) => (
                   <motion.div
                     key={item.id}
                     initial={{ opacity: 0, height: 0, y: -20 }}
@@ -420,7 +420,7 @@ const Dashboard: React.FC = () => {
 };
 
 const ChevronRight: React.FC<{ className?: string }> = ({ className }) => (
-  <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round font-bold"><path d="m9 18 6-6-6-6" /></svg>
+  <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="m9 18 6-6-6-6" /></svg>
 );
 
 export default Dashboard;

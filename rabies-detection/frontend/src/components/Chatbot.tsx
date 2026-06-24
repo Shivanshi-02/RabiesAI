@@ -8,9 +8,7 @@ import {
   User,
   Loader2,
   AlertTriangle,
-  Shield,
   Syringe,
-  HelpCircle,
   ChevronRight,
   Info,
   Sparkles
